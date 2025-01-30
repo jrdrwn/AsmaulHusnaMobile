@@ -13,7 +13,8 @@ object DataMapper {
                 latin = it.latin,
                 arabic = it.arabic,
                 translationId = it.translationId,
-                translationEn = it.translationEn
+                translationEn = it.translationEn,
+                isFavorite = false
             )
             asmaulHusnaList.add(asmaulHusna)
         }
@@ -27,7 +28,8 @@ object DataMapper {
                 latin = it.latin,
                 arabic = it.arabic,
                 translationId = it.translationId,
-                translationEn = it.translationEn
+                translationEn = it.translationEn,
+                isFavorite = it.isFavorite
             )
         }
 
@@ -36,6 +38,7 @@ object DataMapper {
         latin = input.latin,
         arabic = input.arabic,
         translationId = input.translationId,
-        translationEn = input.translationEn
+        translationEn = input.translationEn,
+        isFavorite = input.isFavorite
     )
 }

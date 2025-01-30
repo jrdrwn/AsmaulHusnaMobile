@@ -10,4 +10,5 @@ data class AsmaulHusna(
     val arabic: String,
     val translationId: String,
     val translationEn: String,
+    val isFavorite: Boolean
 ) : Parcelable

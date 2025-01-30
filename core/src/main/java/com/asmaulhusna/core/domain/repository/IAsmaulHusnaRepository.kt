@@ -6,4 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface IAsmaulHusnaRepository {
     fun getAllAsmaulHusna(): Flow<Resource<List<AsmaulHusna>>>
+    fun getFavoriteAsmaulHusna(): Flow<List<AsmaulHusna>>
+    suspend fun setFavoriteAsmaulHusna(asmaulHusna: AsmaulHusna, state: Boolean)
 }

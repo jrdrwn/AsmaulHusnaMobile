@@ -1,11 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Asmaul Husna</string>
-    <string name="title_home">Home</string>
-    <string name="title_favorite">Favorite</string>
-    <string name="title_settings">Settings</string>
-    <string name="title_search">Search</string>
-    <string name="translation_id">🇮🇩 “%s”</string>
-    <string name="translation_en">🇺🇸 “%s”</string>
-    <string name="title_asmaul_husna">Asmaul Husna</string>
-    <string name="title_subtitle_asmaul_husna">Nama-nama Terbaik Allah</string>
+    <string name="flag_id">🇮🇩</string>
+    <string name="flag_us">🇺🇸</string>
+    <string name="title_terjemahan">Terjemahan</string>
+    <string name="empty_favorite">Saat ini belum ada data yang tersimpan</string>
 </resources>

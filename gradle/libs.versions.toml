@@ -18,6 +18,7 @@ retrofit = "2.11.0"
 loggingInterceptor = "4.12.0"
 koin = "3.5.6"
 recyclerview = "1.4.0"
+activity = "1.10.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -39,6 +40,7 @@ room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -7,8 +7,11 @@ import com.asmaulhusna.core.domain.repository.IAsmaulHusnaRepository
 import com.asmaulhusna.core.utils.DataMapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 
 class AsmaulHusnaRepository(
     private val apiService: ApiService,
@@ -18,16 +21,29 @@ class AsmaulHusnaRepository(
         return flow {
             try {
                 emit(Resource.Loading())
-                val response = apiService.getList()
-                val data = DataMapper.mapResponsesToEntities(response.data)
-                asmaulHusnaDao.insertAsmaulHusna(data)
+                if (asmaulHusnaDao.getAllAsmaulHusna().first().isEmpty()) {
+                    val response = apiService.getList()
+                    val data = DataMapper.mapResponsesToEntities(response.data)
+                    asmaulHusnaDao.insertAsmaulHusna(data)
+                }
             } catch (e: Exception) {
                 emit(Resource.Error(e.message.toString()))
             } finally {
                 val data = asmaulHusnaDao.getAllAsmaulHusna()
-                emit(Resource.Success(DataMapper.mapEntitiesToDomain(data)))
+                    .map { Resource.Success(DataMapper.mapEntitiesToDomain(it)) }
+                emitAll(data)
             }
         }.flowOn(Dispatchers.IO)
+    }
+
+    override fun getFavoriteAsmaulHusna(): Flow<List<AsmaulHusna>> {
+        return asmaulHusnaDao.getFavoriteAsmaulHusna().map { DataMapper.mapEntitiesToDomain(it) }
+    }
+
+    override suspend fun setFavoriteAsmaulHusna(asmaulHusna: AsmaulHusna, state: Boolean) {
+        val asmaulHusnaEntity = DataMapper.mapDomainToEntity(asmaulHusna)
+        asmaulHusnaEntity.isFavorite = state
+        asmaulHusnaDao.updateFavoriteAsmaulHusna(asmaulHusnaEntity)
     }
 
 }

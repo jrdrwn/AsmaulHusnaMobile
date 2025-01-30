@@ -1,5 +1,6 @@
 package com.asmaulhusna.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.asmaulhusna.core.data.Resource
 import com.asmaulhusna.core.ui.AsmaulHusnaAdapter
 import com.asmaulhusna.databinding.FragmentHomeBinding
+import com.asmaulhusna.detail.DetailActivity
 import org.koin.android.ext.android.inject
 
 class HomeFragment : Fragment() {
@@ -33,7 +35,9 @@ class HomeFragment : Fragment() {
 
         val asmaulHusnaAdapter = AsmaulHusnaAdapter()
         asmaulHusnaAdapter.onItemClick = { selectedData ->
-            Toast.makeText(context, "clicked ${selectedData.latin}", Toast.LENGTH_SHORT).show()
+            val intent = Intent(activity, DetailActivity::class.java)
+            intent.putExtra(DetailActivity.EXTRA_DATA, selectedData)
+            startActivity(intent)
         }
 
         homeViewModel.asmaulHusna.observe(viewLifecycleOwner) { result ->

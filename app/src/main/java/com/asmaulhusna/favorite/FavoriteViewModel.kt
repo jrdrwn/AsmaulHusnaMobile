@@ -1,13 +1,9 @@
 package com.asmaulhusna.favorite
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.asmaulhusna.core.domain.usecase.AsmaulHusnaUseCase
 
-class FavoriteViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is favorite Fragment"
-    }
-    val text: LiveData<String> = _text
+class FavoriteViewModel(asmaulHusnaRepository: AsmaulHusnaUseCase) : ViewModel() {
+    val favoriteAsmaulHusna = asmaulHusnaRepository.getFavoriteAsmaulHusna().asLiveData()
 }

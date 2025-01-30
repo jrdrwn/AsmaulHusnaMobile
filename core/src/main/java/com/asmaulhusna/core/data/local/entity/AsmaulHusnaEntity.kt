@@ -22,6 +22,9 @@ class AsmaulHusnaEntity(
     var translationId: String = "",
 
     @ColumnInfo(name = "translation_en")
-    var translationEn: String = ""
+    var translationEn: String = "",
+
+    @ColumnInfo(name = "isFavorite")
+    var isFavorite: Boolean = false
 
 ) : Parcelable
