@@ -36,6 +36,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    dynamicFeatures += setOf(":favorite")
 }
 
 dependencies {
@@ -53,4 +54,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    api(libs.androidx.navigation.dynamic.features.fragment)
 }

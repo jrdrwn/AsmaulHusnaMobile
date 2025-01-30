@@ -15,6 +15,7 @@
         android:id="@+id/navigation_favorite"
         android:name="com.asmaulhusna.favorite.FavoriteFragment"
         android:label="@string/title_favorite"
+        app:moduleName="favorite"
         tools:layout="@layout/fragment_favorite" />
 
     <fragment

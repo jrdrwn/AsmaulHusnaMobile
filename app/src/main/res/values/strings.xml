@@ -4,4 +4,5 @@
     <string name="flag_us">🇺🇸</string>
     <string name="title_terjemahan">Terjemahan</string>
     <string name="empty_favorite">Saat ini belum ada data yang tersimpan</string>
+    <string name="title_favorite">Module Title</string>
 </resources>

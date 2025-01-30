@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asmaulhusna.core.ui.AsmaulHusnaAdapter
-import com.asmaulhusna.databinding.FragmentFavoriteBinding
 import com.asmaulhusna.detail.DetailActivity
+import com.asmaulhusna.favorite.databinding.FragmentFavoriteBinding
 import org.koin.android.ext.android.inject
+import org.koin.core.context.loadKoinModules
 
 class FavoriteFragment : Fragment() {
 
@@ -23,6 +24,7 @@ class FavoriteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
+        loadKoinModules(favoriteModule)
         return binding.root
     }
 
