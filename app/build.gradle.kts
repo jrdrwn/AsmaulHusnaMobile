@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -56,4 +57,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     api(libs.androidx.navigation.dynamic.features.fragment)
+
+    implementation("androidx.datastore:datastore-preferences:1.1.2")
+
 }
