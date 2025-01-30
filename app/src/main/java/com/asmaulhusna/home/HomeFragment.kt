@@ -4,17 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.asmaulhusna.core.data.Resource
+import com.asmaulhusna.core.ui.AsmaulHusnaAdapter
 import com.asmaulhusna.databinding.FragmentHomeBinding
+import org.koin.android.ext.android.inject
 
 class HomeFragment : Fragment() {
 
+    private val homeViewModel: HomeViewModel by inject()
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,17 +23,44 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return binding.root
+    }
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val asmaulHusnaAdapter = AsmaulHusnaAdapter()
+        asmaulHusnaAdapter.onItemClick = { selectedData ->
+            Toast.makeText(context, "clicked ${selectedData.latin}", Toast.LENGTH_SHORT).show()
         }
-        return root
+
+        homeViewModel.asmaulHusna.observe(viewLifecycleOwner) { result ->
+            if (result != null) {
+                when (result) {
+                    is Resource.Loading -> {
+                        binding.loading.visibility = View.VISIBLE
+                    }
+
+                    is Resource.Success -> {
+                        binding.loading.visibility = View.GONE
+                        with(binding.rvAsmaulHusna) {
+                            layoutManager = LinearLayoutManager(context)
+                            setHasFixedSize(true)
+                            adapter = asmaulHusnaAdapter
+                        }
+                        asmaulHusnaAdapter.submitList(result.data)
+                    }
+
+                    is Resource.Error -> {
+                        binding.loading.visibility = View.GONE
+                        Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+
     }
 
     override fun onDestroyView() {
