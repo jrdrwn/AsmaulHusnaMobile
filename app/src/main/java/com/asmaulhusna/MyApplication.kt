@@ -1,9 +1,6 @@
 package com.asmaulhusna
 
 import android.app.Application
-import com.asmaulhusna.core.databaseModule
-import com.asmaulhusna.core.networkModule
-import com.asmaulhusna.core.repositoryModel
 import com.asmaulhusna.di.useCaseModule
 import com.asmaulhusna.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -19,9 +16,9 @@ class MyApplication : Application() {
             androidContext(this@MyApplication)
             modules(
                 listOf(
-                    databaseModule,
-                    networkModule,
-                    repositoryModel,
+                    com.asmaulhusna.core.databaseModule,
+                    com.asmaulhusna.core.networkModule,
+                    com.asmaulhusna.core.repositoryModel,
                     useCaseModule,
                     viewModelModule
                 )

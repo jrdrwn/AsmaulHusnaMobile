@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.asmaulhusna.core.databinding.ItemListAsmaulHusnaBinding
 import com.asmaulhusna.core.domain.model.AsmaulHusna
-import com.asmaulhusna.databinding.ItemListAsmaulHusnaBinding
 
 class AsmaulHusnaAdapter :
     ListAdapter<AsmaulHusna, AsmaulHusnaAdapter.ListViewHolder>(DIFF_CALLBACK) {
