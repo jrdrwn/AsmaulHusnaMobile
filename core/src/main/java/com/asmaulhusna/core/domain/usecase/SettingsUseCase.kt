@@ -1,6 +1,6 @@
-package com.asmaulhusna.settings.domain.usecase
+package com.asmaulhusna.core.domain.usecase
 
-import com.asmaulhusna.settings.domain.model.Settings
+import com.asmaulhusna.core.domain.model.Settings
 import kotlinx.coroutines.flow.Flow
 
 interface SettingsUseCase {

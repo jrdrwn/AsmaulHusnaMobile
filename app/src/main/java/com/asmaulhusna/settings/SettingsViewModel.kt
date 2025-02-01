@@ -1,10 +1,10 @@
-package com.asmaulhusna.settings.ui
+package com.asmaulhusna.settings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.asmaulhusna.settings.domain.model.Settings
-import com.asmaulhusna.settings.domain.usecase.SettingsUseCase
+import com.asmaulhusna.core.domain.model.Settings
+import com.asmaulhusna.core.domain.usecase.SettingsUseCase
 import kotlinx.coroutines.launch
 
 class SettingsViewModel(private val settingsRepository: SettingsUseCase) : ViewModel() {

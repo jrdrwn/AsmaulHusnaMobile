@@ -1,4 +1,4 @@
-package com.asmaulhusna.settings.domain.model
+package com.asmaulhusna.core.domain.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

@@ -31,17 +31,20 @@ class DetailActivity : AppCompatActivity() {
     private fun showDetailAsmaulHusna(detailAsmaulHusna: AsmaulHusna?) {
         detailAsmaulHusna?.let {
             supportActionBar?.title = it.latin
-            binding.tvArab.text = it.arabic
-            binding.tvLatin.text = it.latin
-            binding.tvTranslationId.text = it.translationId
-            binding.tvTranslationEn.text = it.translationEn
+            binding.apply {
 
-            var statusFavorite = it.isFavorite
-            setStatusFavorite(statusFavorite)
-            binding.btnFavorite.setOnClickListener { _ ->
-                statusFavorite = !statusFavorite
-                detailViewModel.setFavoriteAsmaulHusna(detailAsmaulHusna, statusFavorite)
+                tvArab.text = it.arabic
+                tvLatin.text = it.latin
+                tvTranslationId.text = it.translationId
+                tvTranslationEn.text = it.translationEn
+
+                var statusFavorite = it.isFavorite
                 setStatusFavorite(statusFavorite)
+                btnFavorite.setOnClickListener { _ ->
+                    statusFavorite = !statusFavorite
+                    detailViewModel.setFavoriteAsmaulHusna(detailAsmaulHusna, statusFavorite)
+                    setStatusFavorite(statusFavorite)
+                }
             }
         }
     }

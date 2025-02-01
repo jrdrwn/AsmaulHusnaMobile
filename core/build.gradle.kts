@@ -60,4 +60,6 @@ dependencies {
 
     // dependency injection
     api(libs.koin.android)
+
+    implementation(libs.androidx.datastore.preferences)
 }

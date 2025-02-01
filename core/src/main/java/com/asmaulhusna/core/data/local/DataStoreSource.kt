@@ -1,4 +1,4 @@
-package com.asmaulhusna.settings.data.source.local
+package com.asmaulhusna.core.data.local
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -6,13 +6,13 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
-import com.asmaulhusna.settings.domain.model.Settings
+import com.asmaulhusna.core.domain.model.Settings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
-class LocalDataSource(context: Context) {
+class DataStoreSource(context: Context) {
 
     private var appContext = context.applicationContext
 

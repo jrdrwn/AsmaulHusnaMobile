@@ -1,4 +1,4 @@
-package com.asmaulhusna.settings.ui
+package com.asmaulhusna.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -30,13 +30,10 @@ class AsmaulHusnaAdapter :
     inner class ListViewHolder(private var binding: ItemListAsmaulHusnaBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: AsmaulHusna) {
-            binding.tvArab.text = data.arabic
-            binding.tvLatin.text = data.latin
-//            binding.tvTranslationId.text =
-//                itemView.context.getString(R.string.translation_id, data.translationId)
-//            binding.tvTranslationEn.text =
-//                itemView.context.getString(R.string.translation_en, data.translationEn)
-
+            binding.apply {
+                tvArab.text = data.arabic
+                tvLatin.text = data.latin
+            }
         }
 
         init {

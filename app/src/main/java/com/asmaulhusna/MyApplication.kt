@@ -1,7 +1,6 @@
 package com.asmaulhusna
 
 import android.app.Application
-import com.asmaulhusna.di.settingsRepositoryModule
 import com.asmaulhusna.di.useCaseModule
 import com.asmaulhusna.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -20,7 +19,6 @@ class MyApplication : Application() {
                     com.asmaulhusna.core.databaseModule,
                     com.asmaulhusna.core.networkModule,
                     com.asmaulhusna.core.repositoryModel,
-                    settingsRepositoryModule,
                     useCaseModule,
                     viewModelModule
                 )
