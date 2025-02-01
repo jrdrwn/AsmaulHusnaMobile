@@ -61,5 +61,11 @@ dependencies {
     // dependency injection
     api(libs.koin.android)
 
+    // data store
     implementation(libs.androidx.datastore.preferences)
+
+    // unit test
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.kotlinx.coroutines.test)
 }
