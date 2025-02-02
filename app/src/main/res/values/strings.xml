@@ -4,7 +4,7 @@
     <string name="flag_us">🇺🇸</string>
     <string name="title_terjemahan">Terjemahan</string>
     <string name="empty_favorite">Saat ini belum ada data yang tersimpan</string>
-    <string name="title_favorite">Module Title</string>
+    <string name="title_favorite">Favorite</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="enable_dark_mode_for_better_night_time_readability">Enable dark mode for better night-time readability.</string>
     <string name="unknown_error">Terjadi kesalahan</string>
