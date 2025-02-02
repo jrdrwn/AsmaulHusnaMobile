@@ -11,6 +11,7 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
+    <!--suppress AndroidDomInspection, NavigationFile -->
     <fragment
         android:id="@+id/navigation_favorite"
         android:name="com.asmaulhusna.favorite.FavoriteFragment"
