@@ -8,6 +8,8 @@ import com.asmaulhusna.core.data.local.room.AsmaulHusnaDatabase
 import com.asmaulhusna.core.data.remote.network.ApiService
 import com.asmaulhusna.core.domain.repository.IAsmaulHusnaRepository
 import com.asmaulhusna.core.domain.repository.ISettingsRepository
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -20,9 +22,12 @@ val databaseModule = module {
     factory { DataStoreSource(get()) }
     factory { get<AsmaulHusnaDatabase>().asmaulHusnaDao() }
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("asmaulhusna".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(), AsmaulHusnaDatabase::class.java, "AsmaulHusna.db"
-        ).build()
+        ).openHelperFactory(factory)
+            .build()
     }
 }
 
