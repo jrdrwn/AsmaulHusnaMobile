@@ -58,5 +58,5 @@ dependencies {
 
     api(libs.androidx.navigation.dynamic.features.fragment)
 
-
+    debugImplementation(libs.leakcanary.android)
 }
