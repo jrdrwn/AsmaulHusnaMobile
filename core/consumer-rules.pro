@@ -3,8 +3,7 @@
 -keepclassmembers class com.asmaulhusna.core.data.remote.response.AsmaulHusnaResponse { <fields>; }
 -keepclassmembers class com.asmaulhusna.core.data.remote.response.ListAsmaulHusnaResponse  { <fields>; }
 
-##---------------Begin: proguard configuration for all Fragment ----------
--keep public class * extends androidx.fragment.app.Fragment
+-keep class androidx.viewbinding.ViewBinding { *; }
 
 ##---------------Begin: proguard configuration for SQLCipher  ----------
 -keep,includedescriptorclasses class net.sqlcipher.** { *; }
