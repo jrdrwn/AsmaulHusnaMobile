@@ -10,6 +10,7 @@ import com.asmaulhusna.core.domain.repository.IAsmaulHusnaRepository
 import com.asmaulhusna.core.domain.repository.ISettingsRepository
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -33,10 +34,17 @@ val databaseModule = module {
 
 val networkModule = module {
     single {
+        val hostname = "islamic-api-zhirrr.vercel.app"
+        val certificatePinner = CertificatePinner.Builder()
+            .add(hostname, "sha256/8oTTIaobTfGy0BpRmvIHeXMdSpyRJdC9vuqLAxbodqM=")
+            .add(hostname, "sha256/K7rZOrXHknnsEhUH8nLL4MZkejquUuIvOIr6tCa0rbo=")
+            .add(hostname, "sha256/lpZ7tcVwmwQIMcRtPbsQtWLABXhQzejna0wHFr8M=")
+            .build()
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
+            .certificatePinner(certificatePinner)
             .build()
     }
 
