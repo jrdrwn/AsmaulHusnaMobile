@@ -18,7 +18,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/mcv_latin"
-            android:layout_width="185dp"
+            android:layout_width="170dp"
             android:layout_height="70dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_medium"
                     android:textColor="@color/md_theme_primary"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/mcv_arab"
-            android:layout_width="185dp"
+            android:layout_width="170dp"
             android:layout_height="70dp"
             app:cardBackgroundColor="@color/md_theme_primary"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,7 @@
                     android:fontFamily="@font/montserrat_medium"
                     android:layoutDirection="rtl"
                     android:textColor="@color/md_theme_onPrimary"
-                    android:textSize="40sp"
+                    android:textSize="32sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

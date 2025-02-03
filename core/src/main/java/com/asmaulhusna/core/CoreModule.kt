@@ -26,7 +26,7 @@ val databaseModule = module {
         val passphrase: ByteArray = SQLiteDatabase.getBytes("asmaulhusna".toCharArray())
         val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
-            androidContext(), AsmaulHusnaDatabase::class.java, "AsmaulHusna.db"
+            androidContext(), AsmaulHusnaDatabase::class.java, "AsmaulHusna"
         ).openHelperFactory(factory)
             .build()
     }
