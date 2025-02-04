@@ -1,4 +1,4 @@
-package com.asmaulhusna.core
+package com.asmaulhusna.core.di
 
 import androidx.room.Room
 import com.asmaulhusna.core.data.AsmaulHusnaRepository

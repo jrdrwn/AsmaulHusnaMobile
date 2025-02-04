@@ -1,10 +1,5 @@
 -keep class kotlin.** { *; }
 
--keepclassmembers class com.asmaulhusna.core.data.remote.response.AsmaulHusnaResponse { <fields>; }
--keepclassmembers class com.asmaulhusna.core.data.remote.response.ListAsmaulHusnaResponse  { <fields>; }
-
--keep class androidx.viewbinding.ViewBinding { *; }
-
 ##---------------Begin: proguard configuration for SQLCipher  ----------
 -keep,includedescriptorclasses class net.sqlcipher.** { *; }
 -keep,includedescriptorclasses interface net.sqlcipher.** { *; }
@@ -69,20 +64,6 @@
 -keep,allowobfuscation interface <1>
 
 -dontwarn kotlinx.**
-
--dontwarn java.lang.invoke.StringConcatFactory
-
--keep class com.asmaulhusna.core.** { *; }
--keepclassmembers class com.asmaulhusna.core.** { *; }
-
--keep class com.asmaulhusna.core.domain.usecase.** { *; }
--keepclassmembers class com.asmaulhusna.core.domain.usecase.** { *; }
-
--keep class com.asmaulhusna.core.databinding.** { *; }
--keepclassmembers class com.asmaulhusna.core.databinding.** { *; }
-
--keep class com.asmaulhusna.core.ui.** { *; }
--keepclassmembers class com.asmaulhusna.core.ui.** { *; }
 
 -keep class com.asmaulhusna.core.data.** { *; }
 -keepclassmembers class com.asmaulhusna.core.data.** { *; }
